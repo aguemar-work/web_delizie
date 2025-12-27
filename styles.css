@@ -1,55 +1,50 @@
 /* ============================================
-   DELIZIE - PREMIUM LANDING PAGE STYLES
-   Editorial, Elegant, Minimalist Design System
+   DELIZIE - PREMIUM EDITORIAL LANDING PAGE
+   Organic, Fluid, Magazine-Style Design
    ============================================ */
 
 /* ============================================
-   CSS VARIABLES - DESIGN TOKENS
+   DESIGN TOKENS
    ============================================ */
 :root {
-    /* Brand Colors */
-    --color-green: rgb(31, 61, 43);
-    --color-gold: rgb(176, 122, 58);
-    --color-bg: #faf7f0;
-    --color-text: #333333;
-    --color-text-light: #666666;
-    --color-white: #ffffff;
+    /* Colors */
+    --green: rgb(31, 61, 43);
+    --gold: rgb(176, 122, 58);
+    --beige: #faf7f0;
+    --white: #ffffff;
+    --text: #333333;
+    --text-light: #666666;
+    --text-lighter: #999999;
 
     /* Typography */
-    --font-serif: 'Playfair Display', 'Times New Roman', serif;
-    --font-sans: 'Montserrat', sans-serif;
+    --serif: 'Playfair Display', 'Times New Roman', serif;
+    --sans: 'Montserrat', sans-serif;
 
-    /* Spacing System */
-    --space-xs: 0.5rem;
-    --space-sm: 1rem;
-    --space-md: 2rem;
-    --space-lg: 4rem;
-    --space-xl: 6rem;
-    --space-xxl: 8rem;
+    /* Spacing */
+    --space-1: 0.5rem;
+    --space-2: 1rem;
+    --space-3: 1.5rem;
+    --space-4: 2rem;
+    --space-5: 3rem;
+    --space-6: 4rem;
+    --space-8: 6rem;
+    --space-10: 8rem;
 
-    /* Border Radius */
-    --radius-sm: 8px;
-    --radius-md: 16px;
-    --radius-lg: 24px;
+    /* Radius */
+    --radius: 20px;
 
     /* Transitions */
-    --transition-fast: 0.2s ease;
-    --transition-base: 0.3s ease;
-    --transition-slow: 0.5s ease;
-
-    /* Shadows */
-    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
-    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.06);
-    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.08);
+    --ease: cubic-bezier(0.4, 0, 0.2, 1);
+    --duration: 0.3s;
 }
 
 /* ============================================
-   RESET & BASE STYLES
+   RESET & BASE
    ============================================ */
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 html {
@@ -58,13 +53,12 @@ html {
 }
 
 body {
-    font-family: var(--font-sans);
-    font-weight: 400;
-    color: var(--color-text);
-    background-color: var(--color-bg);
-    line-height: 1.7;
+    font-family: var(--sans);
+    font-weight: 300;
+    color: var(--text);
+    background-color: var(--beige);
+    line-height: 1.8;
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
 }
 
 img {
@@ -76,269 +70,273 @@ img {
 a {
     text-decoration: none;
     color: inherit;
-    transition: var(--transition-base);
 }
 
 /* ============================================
-   TYPOGRAPHY SYSTEM
+   TYPOGRAPHY
    ============================================ */
 h1,
 h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family: var(--font-serif);
+h3 {
+    font-family: var(--serif);
     font-weight: 600;
     line-height: 1.2;
-    color: var(--color-green);
+    color: var(--green);
+    letter-spacing: -0.02em;
+}
+
+h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+}
+
+h2 {
+    font-size: clamp(1.75rem, 4vw, 2.75rem);
+}
+
+h3 {
+    font-size: clamp(1.25rem, 3vw, 1.875rem);
+}
+
+p {
+    font-size: clamp(1rem, 2vw, 1.125rem);
+}
+
+/* ============================================
+   LAYOUT CONTAINERS
+   ============================================ */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-4);
+}
+
+.container-narrow {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 var(--space-4);
 }
 
 /* ============================================
    HERO SECTION
    ============================================ */
 .hero {
-    min-height: 90vh;
+    min-height: 85vh;
     display: flex;
     align-items: center;
-    justify-content: center;
-    padding: var(--space-lg) var(--space-md);
-    position: relative;
-}
-
-.hero-content {
-    max-width: 1200px;
-    width: 100%;
-    margin: 0 auto;
+    padding: var(--space-8) 0;
 }
 
 .hero-brand {
     text-align: center;
-    margin-bottom: var(--space-lg);
+    margin-bottom: var(--space-6);
+    animation: fadeIn 0.8s var(--ease);
 }
 
 .hero-logo {
-    max-width: 180px;
-    margin: 0 auto var(--space-sm);
+    max-width: 200px;
+    margin: 0 auto;
 }
 
-.hero-tagline {
-    font-family: var(--font-serif);
-    font-style: italic;
-    font-size: 1.125rem;
-    color: var(--color-gold);
-}
-
-.hero-grid {
+.hero-layout {
     display: grid;
     grid-template-columns: 1fr;
-    gap: var(--space-lg);
+    gap: var(--space-6);
     align-items: center;
 }
 
 .hero-text {
-    text-align: center;
+    animation: fadeInUp 0.8s var(--ease) 0.2s both;
 }
 
 .hero-title {
-    font-size: 2.5rem;
-    margin-bottom: var(--space-md);
-    letter-spacing: -0.02em;
+    margin-bottom: var(--space-4);
 }
 
-.hero-description {
-    font-size: 1.125rem;
-    line-height: 1.8;
-    color: var(--color-text-light);
-    margin-bottom: var(--space-md);
-    font-weight: 300;
+.hero-description p {
+    margin-bottom: var(--space-3);
+    color: var(--text-light);
 }
 
 .hero-gratitude {
-    font-family: var(--font-serif);
+    font-family: var(--serif);
     font-style: italic;
-    font-size: 1.125rem;
-    color: var(--color-green);
+    color: var(--green);
+    font-weight: 400;
 }
 
 .hero-visual {
-    display: flex;
-    justify-content: center;
+    animation: fadeInUp 0.8s var(--ease) 0.4s both;
 }
 
 .hero-image {
     width: 100%;
-    max-width: 500px;
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-lg);
+    border-radius: var(--radius);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
 }
 
 /* ============================================
-   SECTION DIVIDER
+   DIVIDERS
    ============================================ */
-.section-divider {
+.divider {
     height: 1px;
     background: linear-gradient(to right,
             transparent,
-            var(--color-gold) 50%,
+            var(--gold) 50%,
             transparent);
-    max-width: 400px;
-    margin: var(--space-xl) auto;
+    max-width: 300px;
+    margin: var(--space-8) auto;
+    opacity: 0.4;
+}
+
+.divider-sm {
+    height: 1px;
+    background: linear-gradient(to right,
+            transparent 20%,
+            var(--gold) 50%,
+            transparent 80%);
+    max-width: 200px;
+    margin: var(--space-6) auto;
     opacity: 0.3;
+}
+
+/* ============================================
+   SECTION HEADERS
+   ============================================ */
+.section-header {
+    text-align: center;
+    margin-bottom: var(--space-8);
+}
+
+.section-title {
+    margin-bottom: var(--space-2);
+}
+
+.section-intro {
+    color: var(--text-light);
+    font-weight: 300;
 }
 
 /* ============================================
    PRODUCTS SECTION
    ============================================ */
 .products {
-    padding: var(--space-xl) var(--space-md);
+    padding: var(--space-8) 0;
 }
 
-.products-content {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.products-header {
-    text-align: center;
-    margin-bottom: var(--space-xl);
-}
-
-.section-title {
-    font-size: 2.5rem;
-    margin-bottom: var(--space-sm);
-}
-
-.section-subtitle {
-    font-size: 1.125rem;
-    color: var(--color-text-light);
-    font-weight: 300;
-}
-
-.products-flow {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-xl);
-}
-
-/* ============================================
-   PRODUCT CARD
-   ============================================ */
-.product {
+.product-story {
     display: grid;
     grid-template-columns: 1fr;
-    gap: var(--space-lg);
-    align-items: center;
+    gap: var(--space-5);
+    align-items: start;
+    margin-bottom: var(--space-8);
 }
 
-.product-visual {
+.story-visual {
     position: relative;
     overflow: hidden;
-    border-radius: var(--radius-lg);
+    border-radius: var(--radius);
 }
 
-.product-image {
+.story-image {
     width: 100%;
     height: auto;
     object-fit: cover;
-    transition: transform var(--transition-slow);
+    transition: transform 0.6s var(--ease);
 }
 
-.product:hover .product-image {
-    transform: scale(1.03);
+.product-story:hover .story-image {
+    transform: scale(1.02);
 }
 
-.product-info {
-    padding: var(--space-md);
+.story-content {
+    padding: var(--space-3) 0;
 }
 
-.product-name {
-    font-size: 1.75rem;
-    margin-bottom: var(--space-sm);
+.story-title {
+    margin-bottom: var(--space-2);
 }
 
-.product-description {
-    font-size: 1rem;
-    line-height: 1.7;
-    color: var(--color-text-light);
-    margin-bottom: var(--space-md);
+.story-text {
+    color: var(--text-light);
+    margin-bottom: var(--space-4);
+    line-height: 1.8;
 }
 
-.product-note {
-    font-size: 0.875rem;
-    color: var(--color-text-light);
+.story-note {
+    font-size: 0.9rem;
     font-style: italic;
+    color: var(--text-lighter);
 }
 
 /* ============================================
-   PRICING
+   PRODUCT OPTIONS
    ============================================ */
-.product-pricing {
-    background-color: rgba(255, 255, 255, 0.6);
-    border-left: 3px solid var(--color-gold);
-    padding: var(--space-md);
-    margin-bottom: var(--space-md);
-    border-radius: var(--radius-sm);
+.story-options {
+    margin-bottom: var(--space-4);
+    padding: var(--space-3);
+    background: linear-gradient(to right,
+            transparent,
+            rgba(255, 255, 255, 0.5),
+            transparent);
+    border-left: 2px solid var(--gold);
+    border-radius: 4px;
 }
 
-.price-row {
+.option {
     display: flex;
     flex-wrap: wrap;
     align-items: baseline;
-    gap: var(--space-xs);
-    margin-bottom: var(--space-sm);
+    gap: var(--space-2);
+    margin-bottom: var(--space-2);
 }
 
-.price-row:last-child {
+.option:last-child {
     margin-bottom: 0;
 }
 
-.price-label {
-    font-weight: 600;
-    color: var(--color-green);
-    font-size: 0.9375rem;
+.option-name {
+    font-weight: 500;
+    color: var(--green);
 }
 
-.price-detail {
-    font-size: 0.875rem;
-    color: var(--color-text-light);
+.option-detail {
+    font-size: 0.9rem;
     font-style: italic;
+    color: var(--text-light);
 }
 
-.price-value {
+.option-price {
     margin-left: auto;
-    font-weight: 600;
-    color: var(--color-gold);
-    font-size: 1rem;
+    font-weight: 500;
+    color: var(--gold);
 }
 
 /* ============================================
-   CTA BUTTON
+   CTA LINK
    ============================================ */
-.product-cta {
+.cta-link {
     display: inline-flex;
     align-items: center;
-    gap: var(--space-xs);
-    padding: 0.875rem 2rem;
-    background-color: var(--color-gold);
-    color: var(--color-white);
+    gap: var(--space-1);
+    padding: 0.75rem 1.75rem;
+    background-color: var(--gold);
+    color: var(--white);
     border-radius: 50px;
-    font-weight: 500;
+    font-weight: 400;
     font-size: 1rem;
-    box-shadow: var(--shadow-md);
-    transition: all var(--transition-base);
-    cursor: pointer;
+    transition: all var(--duration) var(--ease);
+    box-shadow: 0 4px 12px rgba(176, 122, 58, 0.2);
 }
 
-.product-cta:hover {
+.cta-link:hover {
     background-color: rgb(156, 102, 48);
-    box-shadow: var(--shadow-lg);
     transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(176, 122, 58, 0.3);
 }
 
 .cta-icon {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
     filter: brightness(0) invert(1);
 }
 
@@ -346,190 +344,191 @@ h6 {
    CONTACT SECTION
    ============================================ */
 .contact {
-    padding: var(--space-xl) var(--space-md);
-    background-color: rgba(255, 255, 255, 0.4);
-}
-
-.contact-content {
-    max-width: 800px;
-    margin: 0 auto;
+    padding: var(--space-8) 0;
     text-align: center;
 }
 
-.contact-title {
-    font-size: 2.5rem;
-    margin-bottom: var(--space-sm);
-}
-
-.contact-intro {
-    font-size: 1.125rem;
-    color: var(--color-text-light);
-    margin-bottom: var(--space-lg);
-    font-weight: 300;
-}
-
-.contact-details {
+.contact-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: var(--space-md);
-    margin-top: var(--space-lg);
+    gap: var(--space-5);
+    margin-top: var(--space-6);
 }
 
-.contact-item {
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.info-item {
     display: flex;
     align-items: flex-start;
-    gap: var(--space-md);
-    padding: var(--space-md);
-    background-color: var(--color-white);
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-sm);
+    gap: var(--space-3);
     text-align: left;
-    transition: var(--transition-base);
+    padding: var(--space-3);
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 12px;
+    transition: all var(--duration) var(--ease);
 }
 
-.contact-item:hover {
-    box-shadow: var(--shadow-md);
+.info-item:hover {
+    background-color: rgba(255, 255, 255, 0.8);
     transform: translateY(-2px);
 }
 
-.contact-icon {
+.info-icon {
     font-size: 1.5rem;
     flex-shrink: 0;
 }
 
-.contact-text {
-    flex: 1;
-}
-
-.contact-label {
-    font-size: 0.875rem;
-    color: var(--color-text-light);
-    margin-bottom: 0.25rem;
+.info-label {
+    font-size: 0.8rem;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.1em;
+    color: var(--text-lighter);
+    margin-bottom: 0.25rem;
 }
 
-.contact-link {
-    font-weight: 500;
-    color: var(--color-gold);
+.info-value {
+    font-weight: 400;
+    color: var(--green);
     font-size: 1.125rem;
+    transition: color var(--duration) var(--ease);
 }
 
-.contact-link:hover {
-    color: var(--color-green);
-}
-
-.contact-value {
-    font-weight: 500;
-    color: var(--color-green);
-    font-size: 1.125rem;
+a.info-value:hover {
+    color: var(--gold);
 }
 
 /* ============================================
    FOOTER
    ============================================ */
 .footer {
-    padding: var(--space-lg) var(--space-md);
+    padding: var(--space-6) var(--space-4);
     text-align: center;
-    background-color: var(--color-green);
-    color: var(--color-white);
+    background-color: var(--green);
+    color: var(--white);
 }
 
 .footer-brand {
-    font-family: var(--font-serif);
+    font-family: var(--serif);
     font-size: 1.5rem;
-    color: var(--color-gold);
-    margin-bottom: var(--space-xs);
+    color: var(--gold);
+    margin-bottom: var(--space-1);
 }
 
 .footer-tagline {
-    font-family: var(--font-serif);
+    font-family: var(--serif);
     font-style: italic;
-    font-size: 1rem;
     opacity: 0.9;
-    margin-bottom: var(--space-sm);
-}
-
-.footer-year {
-    font-size: 0.875rem;
-    opacity: 0.7;
 }
 
 /* ============================================
-   RESPONSIVE DESIGN - TABLET
+   ANIMATIONS
+   ============================================ */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
+   RESPONSIVE - TABLET
    ============================================ */
 @media (min-width: 768px) {
-    .hero-grid {
+    .hero-layout {
         grid-template-columns: 1fr 1fr;
-        gap: var(--space-xl);
+        gap: var(--space-8);
     }
 
-    .hero-text {
-        text-align: left;
-    }
-
-    .hero-title {
-        font-size: 3rem;
-    }
-
-    .product {
+    .product-story {
         grid-template-columns: 1fr 1fr;
-        gap: var(--space-xl);
+        gap: var(--space-8);
+        align-items: center;
     }
 
-    .product-reverse {
+    .product-story-reverse {
         direction: rtl;
     }
 
-    .product-reverse>* {
+    .product-story-reverse>* {
         direction: ltr;
     }
 
-    .contact-details {
-        grid-template-columns: repeat(2, 1fr);
+    .contact-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-6);
     }
 }
 
 /* ============================================
-   RESPONSIVE DESIGN - DESKTOP
+   RESPONSIVE - DESKTOP
    ============================================ */
 @media (min-width: 1024px) {
     .hero {
-        padding: var(--space-xl) var(--space-lg);
+        padding: var(--space-10) 0;
     }
 
-    .hero-title {
-        font-size: 3.5rem;
+    .products {
+        padding: var(--space-10) 0;
     }
 
-    .section-title {
-        font-size: 3rem;
-    }
-
-    .product-name {
-        font-size: 2rem;
-    }
-
-    .contact-title {
-        font-size: 3rem;
+    .contact {
+        padding: var(--space-10) 0;
     }
 }
 
 /* ============================================
-   ACCESSIBILITY & PRINT
+   ACCESSIBILITY
    ============================================ */
 @media (prefers-reduced-motion: reduce) {
-    * {
+
+    *,
+    *::before,
+    *::after {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
     }
 }
 
-@media print {
+/* Focus styles */
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 4px;
+}
 
-    .product-cta,
-    .contact-link {
-        color: var(--color-text);
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+@media print {
+    .cta-link {
+        background: none;
+        color: var(--text);
+        border: 1px solid var(--text);
+    }
+
+    .hero-image,
+    .story-image {
+        page-break-inside: avoid;
     }
 }
