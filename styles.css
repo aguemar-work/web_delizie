@@ -1,0 +1,535 @@
+/* ============================================
+   DELIZIE - PREMIUM LANDING PAGE STYLES
+   Editorial, Elegant, Minimalist Design System
+   ============================================ */
+
+/* ============================================
+   CSS VARIABLES - DESIGN TOKENS
+   ============================================ */
+:root {
+    /* Brand Colors */
+    --color-green: rgb(31, 61, 43);
+    --color-gold: rgb(176, 122, 58);
+    --color-bg: #faf7f0;
+    --color-text: #333333;
+    --color-text-light: #666666;
+    --color-white: #ffffff;
+
+    /* Typography */
+    --font-serif: 'Playfair Display', 'Times New Roman', serif;
+    --font-sans: 'Montserrat', sans-serif;
+
+    /* Spacing System */
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 2rem;
+    --space-lg: 4rem;
+    --space-xl: 6rem;
+    --space-xxl: 8rem;
+
+    /* Border Radius */
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-base: 0.3s ease;
+    --transition-slow: 0.5s ease;
+
+    /* Shadows */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.08);
+}
+
+/* ============================================
+   RESET & BASE STYLES
+   ============================================ */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-sans);
+    font-weight: 400;
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition-base);
+}
+
+/* ============================================
+   TYPOGRAPHY SYSTEM
+   ============================================ */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-serif);
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--color-green);
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+.hero {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-lg) var(--space-md);
+    position: relative;
+}
+
+.hero-content {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.hero-brand {
+    text-align: center;
+    margin-bottom: var(--space-lg);
+}
+
+.hero-logo {
+    max-width: 180px;
+    margin: 0 auto var(--space-sm);
+}
+
+.hero-tagline {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 1.125rem;
+    color: var(--color-gold);
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+    align-items: center;
+}
+
+.hero-text {
+    text-align: center;
+}
+
+.hero-title {
+    font-size: 2.5rem;
+    margin-bottom: var(--space-md);
+    letter-spacing: -0.02em;
+}
+
+.hero-description {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--color-text-light);
+    margin-bottom: var(--space-md);
+    font-weight: 300;
+}
+
+.hero-gratitude {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 1.125rem;
+    color: var(--color-green);
+}
+
+.hero-visual {
+    display: flex;
+    justify-content: center;
+}
+
+.hero-image {
+    width: 100%;
+    max-width: 500px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+}
+
+/* ============================================
+   SECTION DIVIDER
+   ============================================ */
+.section-divider {
+    height: 1px;
+    background: linear-gradient(to right,
+            transparent,
+            var(--color-gold) 50%,
+            transparent);
+    max-width: 400px;
+    margin: var(--space-xl) auto;
+    opacity: 0.3;
+}
+
+/* ============================================
+   PRODUCTS SECTION
+   ============================================ */
+.products {
+    padding: var(--space-xl) var(--space-md);
+}
+
+.products-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.products-header {
+    text-align: center;
+    margin-bottom: var(--space-xl);
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: var(--space-sm);
+}
+
+.section-subtitle {
+    font-size: 1.125rem;
+    color: var(--color-text-light);
+    font-weight: 300;
+}
+
+.products-flow {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+}
+
+/* ============================================
+   PRODUCT CARD
+   ============================================ */
+.product {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+    align-items: center;
+}
+
+.product-visual {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+}
+
+.product-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+}
+
+.product:hover .product-image {
+    transform: scale(1.03);
+}
+
+.product-info {
+    padding: var(--space-md);
+}
+
+.product-name {
+    font-size: 1.75rem;
+    margin-bottom: var(--space-sm);
+}
+
+.product-description {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+    margin-bottom: var(--space-md);
+}
+
+.product-note {
+    font-size: 0.875rem;
+    color: var(--color-text-light);
+    font-style: italic;
+}
+
+/* ============================================
+   PRICING
+   ============================================ */
+.product-pricing {
+    background-color: rgba(255, 255, 255, 0.6);
+    border-left: 3px solid var(--color-gold);
+    padding: var(--space-md);
+    margin-bottom: var(--space-md);
+    border-radius: var(--radius-sm);
+}
+
+.price-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--space-xs);
+    margin-bottom: var(--space-sm);
+}
+
+.price-row:last-child {
+    margin-bottom: 0;
+}
+
+.price-label {
+    font-weight: 600;
+    color: var(--color-green);
+    font-size: 0.9375rem;
+}
+
+.price-detail {
+    font-size: 0.875rem;
+    color: var(--color-text-light);
+    font-style: italic;
+}
+
+.price-value {
+    margin-left: auto;
+    font-weight: 600;
+    color: var(--color-gold);
+    font-size: 1rem;
+}
+
+/* ============================================
+   CTA BUTTON
+   ============================================ */
+.product-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: 0.875rem 2rem;
+    background-color: var(--color-gold);
+    color: var(--color-white);
+    border-radius: 50px;
+    font-weight: 500;
+    font-size: 1rem;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-base);
+    cursor: pointer;
+}
+
+.product-cta:hover {
+    background-color: rgb(156, 102, 48);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+}
+
+.cta-icon {
+    width: 20px;
+    height: 20px;
+    filter: brightness(0) invert(1);
+}
+
+/* ============================================
+   CONTACT SECTION
+   ============================================ */
+.contact {
+    padding: var(--space-xl) var(--space-md);
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.contact-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contact-title {
+    font-size: 2.5rem;
+    margin-bottom: var(--space-sm);
+}
+
+.contact-intro {
+    font-size: 1.125rem;
+    color: var(--color-text-light);
+    margin-bottom: var(--space-lg);
+    font-weight: 300;
+}
+
+.contact-details {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+    margin-top: var(--space-lg);
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-md);
+    padding: var(--space-md);
+    background-color: var(--color-white);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    text-align: left;
+    transition: var(--transition-base);
+}
+
+.contact-item:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.contact-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.contact-text {
+    flex: 1;
+}
+
+.contact-label {
+    font-size: 0.875rem;
+    color: var(--color-text-light);
+    margin-bottom: 0.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.contact-link {
+    font-weight: 500;
+    color: var(--color-gold);
+    font-size: 1.125rem;
+}
+
+.contact-link:hover {
+    color: var(--color-green);
+}
+
+.contact-value {
+    font-weight: 500;
+    color: var(--color-green);
+    font-size: 1.125rem;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.footer {
+    padding: var(--space-lg) var(--space-md);
+    text-align: center;
+    background-color: var(--color-green);
+    color: var(--color-white);
+}
+
+.footer-brand {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    color: var(--color-gold);
+    margin-bottom: var(--space-xs);
+}
+
+.footer-tagline {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 1rem;
+    opacity: 0.9;
+    margin-bottom: var(--space-sm);
+}
+
+.footer-year {
+    font-size: 0.875rem;
+    opacity: 0.7;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN - TABLET
+   ============================================ */
+@media (min-width: 768px) {
+    .hero-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-xl);
+    }
+
+    .hero-text {
+        text-align: left;
+    }
+
+    .hero-title {
+        font-size: 3rem;
+    }
+
+    .product {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-xl);
+    }
+
+    .product-reverse {
+        direction: rtl;
+    }
+
+    .product-reverse>* {
+        direction: ltr;
+    }
+
+    .contact-details {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ============================================
+   RESPONSIVE DESIGN - DESKTOP
+   ============================================ */
+@media (min-width: 1024px) {
+    .hero {
+        padding: var(--space-xl) var(--space-lg);
+    }
+
+    .hero-title {
+        font-size: 3.5rem;
+    }
+
+    .section-title {
+        font-size: 3rem;
+    }
+
+    .product-name {
+        font-size: 2rem;
+    }
+
+    .contact-title {
+        font-size: 3rem;
+    }
+}
+
+/* ============================================
+   ACCESSIBILITY & PRINT
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+@media print {
+
+    .product-cta,
+    .contact-link {
+        color: var(--color-text);
+    }
+}
