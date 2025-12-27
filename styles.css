@@ -450,6 +450,46 @@ a.info-value:hover {
 }
 
 /* ============================================
+   SCROLL ANIMATIONS & INTERACTION
+   ============================================ */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    will-change: opacity, transform;
+}
+
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+/* Staggered delays for children if needed */
+.fade-in-section:nth-child(2) {
+    transition-delay: 0.1s;
+}
+
+.fade-in-section:nth-child(3) {
+    transition-delay: 0.2s;
+}
+
+.fade-in-section:nth-child(4) {
+    transition-delay: 0.3s;
+}
+
+/* Specific element animations target */
+.scroll-animate {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.scroll-animate.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ============================================
    RESPONSIVE - TABLET
    ============================================ */
 @media (min-width: 768px) {
@@ -507,6 +547,12 @@ a.info-value:hover {
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
+    }
+
+    .fade-in-section {
+        opacity: 1;
+        transform: none;
+        transition: none;
     }
 }
 
